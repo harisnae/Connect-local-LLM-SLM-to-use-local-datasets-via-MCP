@@ -18,7 +18,6 @@ bash Miniconda3-latest-Linux-x86_64.sh
 After installation, re-read bash
 ```
 source ~/.bashrc
-
 ```
 Create a conda environment named "llama"
 ```
@@ -45,3 +44,25 @@ Install llama-cpp-python in conda "llama" environment
 ```
 conda install llama-cpp-python
 ```
+Download a model GGUF from Huggingface, in this case we downloading the GGUF of Microsoft's Phi-4 
+
+```
+wget https://huggingface.co/microsoft/phi-4-gguf/resolve/main/phi-4-q4.gguf
+
+```
+## Running the model in Python
+Activate python interpreter
+```
+python3
+```
+Run the following script in python interpreter for Text completion
+```
+from llama_cpp import Llama
+
+model = Llama(model_path="/Path/to/model-gguf-file/phi-4-Q2_K.gguf")
+
+output = model("Q: Explain the de Sitter thermodynamics using the Painlev´e-Gullstrand (PG) coordinates, where the metric has no singularity at the cosmological horizon", max_tokens=1000, stop=["Q:"], echo=False)
+
+print(output['choices'][0]['text'])
+```
+
