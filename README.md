@@ -1,4 +1,4 @@
-# Link local LM with Local Data via MCP
+# Link local LM with Local Data via MCP (Incomplete)
 This repository is a guide to connecting a locally deployed LLM (Large Language Model) / SLM (Small Language Model) with local datasets using MCP (Model Context Protocol).
 
 ## Conda Installation
